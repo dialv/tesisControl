@@ -1,0 +1,4 @@
+tesiscontroltesis:
+    resource: "@tesisControltesisBundle/Resources/config/routing.yml"
+    prefix:   /
+

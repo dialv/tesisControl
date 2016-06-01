@@ -1,0 +1,67 @@
+<?php
+
+namespace tesisControl\tesisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Notas
+ *
+ * @ORM\Table(name="notas", uniqueConstraints={@ORM\UniqueConstraint(name="notas_pk", columns={"id_nota"})}, indexes={@ORM\Index(name="registra2_fk", columns={"id_etapa"}), @ORM\Index(name="obtiene_fk", columns={"carnet_a"})})
+ * @ORM\Entity
+ */
+class Notas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_nota", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="notas_id_nota_seq", allocationSize=1, initialValue=1)
+     */
+    private $idNota;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nota", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $nota;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ponderacion", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $ponderacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=250, nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var \Alumno
+     *
+     * @ORM\ManyToOne(targetEntity="Alumno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="carnet_a", referencedColumnName="carnet_a")
+     * })
+     */
+    private $carnetA;
+
+    /**
+     * @var \Etapa
+     *
+     * @ORM\ManyToOne(targetEntity="Etapa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_etapa", referencedColumnName="id_etapa")
+     * })
+     */
+    private $idEtapa;
+
+
+}

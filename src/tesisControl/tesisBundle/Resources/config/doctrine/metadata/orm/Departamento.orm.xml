@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Departamento" table="departamento">
+    <indexes>
+      <index name="pertenece1_fk" columns="id_carrera"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="departamento_pk" columns="id_departamento"/>
+    </unique-constraints>
+    <id name="idDepartamento" type="integer" column="id_departamento">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreDp" type="string" column="nombre_dp" length="50" nullable="true"/>
+    <many-to-one field="idCarrera" target-entity="Carrera">
+      <join-columns>
+        <join-column name="id_carrera" referenced-column-name="id_carrera"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,7 @@
+parameters:
+#    tesis_controltesis.example.class: tesisControl\tesisBundle\Example
+
+services:
+#    tesis_controltesis.example:
+#        class: %tesis_controltesis.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

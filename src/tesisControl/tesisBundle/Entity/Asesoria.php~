@@ -1,0 +1,57 @@
+<?php
+
+namespace tesisControl\tesisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Asesoria
+ *
+ * @ORM\Table(name="asesoria", uniqueConstraints={@ORM\UniqueConstraint(name="asesoria_pk", columns={"id_asesoria"})}, indexes={@ORM\Index(name="realiza_fk", columns={"id_grupo"})})
+ * @ORM\Entity
+ */
+class Asesoria
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_asesoria", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="asesoria_id_asesoria_seq", allocationSize=1, initialValue=1)
+     */
+    private $idAsesoria;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hora_inicio", type="time", nullable=true)
+     */
+    private $horaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hora_fin", type="time", nullable=true)
+     */
+    private $horaFin;
+
+    /**
+     * @var \GrupoTesis
+     *
+     * @ORM\ManyToOne(targetEntity="GrupoTesis")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_grupo", referencedColumnName="id_grupo")
+     * })
+     */
+    private $idGrupo;
+
+
+}

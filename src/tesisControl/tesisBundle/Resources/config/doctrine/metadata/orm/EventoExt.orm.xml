@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EventoExt" table="evento_ext">
+    <unique-constraints>
+      <unique-constraint name="evento_ext_pk" columns="id_evento"/>
+    </unique-constraints>
+    <id name="idEvento" type="integer" column="id_evento">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="fecha" type="date" column="fecha" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="250" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TesisEstado" table="tesis_estado">
+    <indexes>
+      <index name="posee1_fk" columns="id_etapa"/>
+      <index name="posee_fk" columns="id_grupo"/>
+      <index name="asignada_fk" columns="id_local"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="tesis_estado_pk" columns="id_estado"/>
+    </unique-constraints>
+    <id name="idEstado" type="integer" column="id_estado">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreEs" type="string" column="nombre_es" length="50" nullable="true"/>
+    <field name="descripcionEs" type="string" column="descripcion_es" length="250" nullable="true"/>
+    <field name="fechaDefensa" type="date" column="fecha_defensa" nullable="true"/>
+    <field name="fechaInicio" type="date" column="fecha_inicio" nullable="true"/>
+    <field name="fechaFin" type="date" column="fecha_fin" nullable="true"/>
+    <field name="status" type="boolean" column="status" nullable="true"/>
+    <field name="observacion" type="string" column="observacion" length="250" nullable="true"/>
+    <many-to-one field="idEtapa" target-entity="Etapa">
+      <join-columns>
+        <join-column name="id_etapa" referenced-column-name="id_etapa"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idGrupo" target-entity="GrupoTesis">
+      <join-columns>
+        <join-column name="id_grupo" referenced-column-name="id_grupo"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idLocal" target-entity="Local">
+      <join-columns>
+        <join-column name="id_local" referenced-column-name="id_local"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

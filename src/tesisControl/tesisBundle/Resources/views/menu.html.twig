@@ -1,0 +1,33 @@
+{# src/minsal/academicaAnBundle/Resource/views/menu.html.twig #}
+  {% block stylesheets %}
+        <link href="{{ asset('bundles/tesiscontroltesis/menu/pro_drop_1.css') }}" rel="stylesheet" type="text/css" />
+  {% endblock %}
+  {% block javascripts %}       
+        <script type="text/javascript" src="{{ asset('bundles/tesiscontroltesis/menu/stuHover.js') }}" ></script>
+  {% endblock %}
+<span class="preload1"></span>
+<span class="preload2"></span>
+ 
+<ul id="nav">
+    <li class="top">
+        <a href="{{ path('usuario') }}" class="top_link">
+            <span class="down">Evaluación</span></a>
+            <ul class="sub">
+                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+            </ul>
+    </li>
+    <li class="top">
+        <a href="{{ path('usuario') }}" class="top_link">
+            <span class="down">Asignatura</span> </a>
+            <ul class="sub">
+                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+            </ul>
+    </li>
+    <li class="top">
+        <a href="{{ path('usuario') }}" class="top_link">
+            <span class="down">Estudiante</span> </a>
+          <ul class="sub">
+                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+            </ul>
+    </li>
+</ul>

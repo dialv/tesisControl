@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="DocenteTribunal" table="docente_tribunal">
+    <indexes>
+      <index name="pertenece2_fk" columns="id_docente"/>
+      <index name="pertenece_fk" columns="id_tribun"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="pertenece_pk" columns="id_doce_tri"/>
+    </unique-constraints>
+    <id name="idDoceTri" type="integer" column="id_doce_tri">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <many-to-one field="idDocente" target-entity="Docente">
+      <join-columns>
+        <join-column name="id_docente" referenced-column-name="id_docente"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idTribun" target-entity="Tribunal">
+      <join-columns>
+        <join-column name="id_tribun" referenced-column-name="id_tribun"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

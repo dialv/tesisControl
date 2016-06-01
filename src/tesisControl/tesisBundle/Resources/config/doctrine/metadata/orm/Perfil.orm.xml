@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Perfil" table="perfil">
+    <indexes>
+      <index name="evalua_fk" columns="id_tesis"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="perfil_pk" columns="id_perfil"/>
+    </unique-constraints>
+    <id name="idPerfil" type="integer" column="id_perfil">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="descripcion" type="string" column="descripcion" length="250" nullable="true"/>
+    <field name="entidad" type="string" column="entidad" length="50" nullable="true"/>
+    <many-to-one field="idTesis" target-entity="Tesis">
+      <join-columns>
+        <join-column name="id_tesis" referenced-column-name="id_tesis"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

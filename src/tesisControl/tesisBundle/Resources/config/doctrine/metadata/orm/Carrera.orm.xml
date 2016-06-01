@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Carrera" table="carrera_">
+    <unique-constraints>
+      <unique-constraint name="carrera__pk" columns="id_carrera"/>
+    </unique-constraints>
+    <id name="idCarrera" type="string" column="id_carrera">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreC" type="string" column="nombre_c" nullable="true"/>
+  </entity>
+</doctrine-mapping>

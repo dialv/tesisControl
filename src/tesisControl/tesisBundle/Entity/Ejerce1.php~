@@ -1,0 +1,46 @@
+<?php
+
+namespace tesisControl\tesisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ejerce1
+ *
+ * @ORM\Table(name="ejerce1", uniqueConstraints={@ORM\UniqueConstraint(name="ejerce1_pk", columns={"id_t_docente"})}, indexes={@ORM\Index(name="ejerce2_fk", columns={"id_rol"}), @ORM\Index(name="ejerce1_fk", columns={"id_docente"})})
+ * @ORM\Entity
+ */
+class Ejerce1
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_t_docente", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ejerce1_id_t_docente_seq", allocationSize=1, initialValue=1)
+     */
+    private $idTDocente;
+
+    /**
+     * @var \Docente
+     *
+     * @ORM\ManyToOne(targetEntity="Docente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_docente", referencedColumnName="id_docente")
+     * })
+     */
+    private $idDocente;
+
+    /**
+     * @var \Rol
+     *
+     * @ORM\ManyToOne(targetEntity="Rol")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_rol", referencedColumnName="id_rol")
+     * })
+     */
+    private $idRol;
+
+
+}

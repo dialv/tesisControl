@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Alumno" table="alumno">
+    <indexes>
+      <index name="conforman_fk" columns="id_grupo"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="alumno_pk" columns="carnet_a"/>
+    </unique-constraints>
+    <id name="carnetA" type="string" column="carnet_a">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreA" type="string" column="nombre_a" length="50" nullable="true"/>
+    <many-to-one field="idGrupo" target-entity="GrupoTesis">
+      <join-columns>
+        <join-column name="id_grupo" referenced-column-name="id_grupo"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

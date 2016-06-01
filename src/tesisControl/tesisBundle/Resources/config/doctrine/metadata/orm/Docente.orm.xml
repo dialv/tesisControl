@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Docente" table="docente">
+    <indexes>
+      <index name="registra4_fk" columns="id_usuario"/>
+      <index name="trabaja_fk" columns="id_departamento"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="docente_pk" columns="id_docente"/>
+    </unique-constraints>
+    <id name="idDocente" type="integer" column="id_docente">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreD" type="string" column="nombre_d" length="50" nullable="true"/>
+    <many-to-one field="idDepartamento" target-entity="Departamento">
+      <join-columns>
+        <join-column name="id_departamento" referenced-column-name="id_departamento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUsuario" target-entity="Usuario">
+      <join-columns>
+        <join-column name="id_usuario" referenced-column-name="id_usuario"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

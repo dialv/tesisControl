@@ -1,0 +1,105 @@
+<?php
+
+namespace tesisControl\tesisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TesisEstado
+ *
+ * @ORM\Table(name="tesis_estado", uniqueConstraints={@ORM\UniqueConstraint(name="tesis_estado_pk", columns={"id_estado"})}, indexes={@ORM\Index(name="posee1_fk", columns={"id_etapa"}), @ORM\Index(name="posee_fk", columns={"id_grupo"}), @ORM\Index(name="asignada_fk", columns={"id_local"})})
+ * @ORM\Entity
+ */
+class TesisEstado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_estado", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="tesis_estado_id_estado_seq", allocationSize=1, initialValue=1)
+     */
+    private $idEstado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_es", type="string", length=50, nullable=true)
+     */
+    private $nombreEs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion_es", type="string", length=250, nullable=true)
+     */
+    private $descripcionEs;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_defensa", type="date", nullable=true)
+     */
+    private $fechaDefensa;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_inicio", type="date", nullable=true)
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_fin", type="date", nullable=true)
+     */
+    private $fechaFin;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=250, nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var \Local
+     *
+     * @ORM\ManyToOne(targetEntity="Local")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_local", referencedColumnName="id_local")
+     * })
+     */
+    private $idLocal;
+
+    /**
+     * @var \GrupoTesis
+     *
+     * @ORM\ManyToOne(targetEntity="GrupoTesis")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_grupo", referencedColumnName="id_grupo")
+     * })
+     */
+    private $idGrupo;
+
+    /**
+     * @var \Etapa
+     *
+     * @ORM\ManyToOne(targetEntity="Etapa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_etapa", referencedColumnName="id_etapa")
+     * })
+     */
+    private $idEtapa;
+
+
+}

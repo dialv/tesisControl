@@ -1,0 +1,56 @@
+<?php
+
+namespace tesisControl\tesisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Trazabilidad
+ *
+ * @ORM\Table(name="trazabilidad", uniqueConstraints={@ORM\UniqueConstraint(name="trazabilidad_pk", columns={"id_trazabilidad"})}, indexes={@ORM\Index(name="contiene1_fk", columns={"id_tesis"}), @ORM\Index(name="contiene_fk", columns={"id_evento"}), @ORM\Index(name="registra1_fk", columns={"id_usuario"})})
+ * @ORM\Entity
+ */
+class Trazabilidad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_trazabilidad", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="trazabilidad_id_trazabilidad_seq", allocationSize=1, initialValue=1)
+     */
+    private $idTrazabilidad;
+
+    /**
+     * @var \EventoExt
+     *
+     * @ORM\ManyToOne(targetEntity="EventoExt")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_evento", referencedColumnName="id_evento")
+     * })
+     */
+    private $idEvento;
+
+    /**
+     * @var \Tesis
+     *
+     * @ORM\ManyToOne(targetEntity="Tesis")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tesis", referencedColumnName="id_tesis")
+     * })
+     */
+    private $idTesis;
+
+    /**
+     * @var \Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id_usuario")
+     * })
+     */
+    private $idUsuario;
+
+
+}

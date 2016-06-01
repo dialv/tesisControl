@@ -1,0 +1,7 @@
+tesis_controltesis_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: tesisControltesisBundle:Default:index }
+
+tesisControltesisBundle_usuario:
+    resource: "@tesisControltesisBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
