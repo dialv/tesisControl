@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/tesisControl/tesisBundle/Resources/views/Usuario/edit.html.twig</url>
+            <bookmark id="1">
+                <name/>
+                <line>1</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/Usuario/new.html.twig</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/public/js/usuario/usuario.js</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/Template.html.twig</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/public/js/bootstrap.min.js</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/public/menu/pro_drop_1.css</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/menu.html.twig</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/Usuario/edit.html.twig</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/public/css/bootstrap.min.css</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/public/js/bootstrap.min.css</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/Usuario/show.html.twig</file>
-            <file>file:/var/www/LabsControl/src/tesisControl/tesisBundle/Resources/views/Usuario/index.html.twig</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/tesisControltesisBundle.php</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Controller/DefaultController.php</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Resources/views/Usuario/edit.html.twig</file>
+            <file>file:/var/www/tesisControl/app/config/config_dev.yml</file>
+            <file>file:/var/www/tesisControl/app/config/config.yml</file>
+            <file>file:/var/www/tesisControl/app/config/routing.yml</file>
+            <file>file:/var/www/tesisControl/app/config/routing_dev.yml</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Resources/views/menu.html.twig</file>
+            <file>file:/var/www/tesisControl/app/config/parameters.yml</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Resources/config/routing.yml</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Resources/config/routing/usuario.yml</file>
+            <file>file:/var/www/tesisControl/src/tesisControl/tesisBundle/Tests/Controller/DefaultControllerTest.php</file>
         </group>
     </open-files>
 </project-private>

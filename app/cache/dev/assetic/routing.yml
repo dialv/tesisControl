@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /var/www/LabsControl/app/config/routing_dev.yml
+    resource: /var/www/tesisControl/app/config/routing_dev.yml

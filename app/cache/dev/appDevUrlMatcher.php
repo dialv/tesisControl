@@ -27,6 +27,80 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        // _home
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', '_home');
+            }
+
+            return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\DefaultController::indexAction',  '_route' => '_home',);
+        }
+
+        // tesis_controltesis_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tesis_controltesis_homepage')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/usuario')) {
+            // usuario
+            if (rtrim($pathinfo, '/') === '/usuario') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'usuario');
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::indexAction',  '_route' => 'usuario',);
+            }
+
+            // usuario_show
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_show')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::showAction',));
+            }
+
+            // usuario_new
+            if ($pathinfo === '/usuario/new') {
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::newAction',  '_route' => 'usuario_new',);
+            }
+
+            // usuario_create
+            if ($pathinfo === '/usuario/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_usuario_create;
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::createAction',  '_route' => 'usuario_create',);
+            }
+            not_usuario_create:
+
+            // usuario_edit
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_edit')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::editAction',));
+            }
+
+            // usuario_update
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_usuario_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_update')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::updateAction',));
+            }
+            not_usuario_update:
+
+            // usuario_delete
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_usuario_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_delete')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::deleteAction',));
+            }
+            not_usuario_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -132,71 +206,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
             }
-
-        }
-
-        // tesis_controltesis_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tesis_controltesis_homepage')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\DefaultController::indexAction',));
-        }
-
-        if (0 === strpos($pathinfo, '/usuario')) {
-            // usuario
-            if (rtrim($pathinfo, '/') === '/usuario') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'usuario');
-                }
-
-                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::indexAction',  '_route' => 'usuario',);
-            }
-
-            // usuario_show
-            if (preg_match('#^/usuario/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_show')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::showAction',));
-            }
-
-            // usuario_new
-            if ($pathinfo === '/usuario/new') {
-                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::newAction',  '_route' => 'usuario_new',);
-            }
-
-            // usuario_create
-            if ($pathinfo === '/usuario/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_usuario_create;
-                }
-
-                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::createAction',  '_route' => 'usuario_create',);
-            }
-            not_usuario_create:
-
-            // usuario_edit
-            if (preg_match('#^/usuario/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_edit')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::editAction',));
-            }
-
-            // usuario_update
-            if (preg_match('#^/usuario/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_usuario_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_update')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::updateAction',));
-            }
-            not_usuario_update:
-
-            // usuario_delete
-            if (preg_match('#^/usuario/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_usuario_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_delete')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\UsuarioController::deleteAction',));
-            }
-            not_usuario_delete:
 
         }
 
