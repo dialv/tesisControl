@@ -5,3 +5,11 @@ tesis_controltesis_homepage:
 tesisControltesisBundle_usuario:
     resource: "@tesisControltesisBundle/Resources/config/routing/usuario.yml"
     prefix:   /usuario
+
+tesisControltesisBundle_etapa:
+    resource: "@tesisControltesisBundle/Resources/config/routing/etapa.yml"
+    prefix:   /etapa   
+
+tesisControltesisBundle_asesoria:
+    resource: "@tesisControltesisBundle/Resources/config/routing/asesoria.yml"
+    prefix:   /asesoria    

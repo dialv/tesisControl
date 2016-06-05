@@ -49,7 +49,14 @@ class Docente
      */
     private $idDepartamento;
 
-
+ public function __toString()
+    {
+        try {
+            return (string) $this->idDocente;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 
     /**
      * Get idDocente

@@ -101,6 +101,126 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/etapa')) {
+            // etapa
+            if (rtrim($pathinfo, '/') === '/etapa') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'etapa');
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::indexAction',  '_route' => 'etapa',);
+            }
+
+            // etapa_show
+            if (preg_match('#^/etapa/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etapa_show')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::showAction',));
+            }
+
+            // etapa_new
+            if ($pathinfo === '/etapa/new') {
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::newAction',  '_route' => 'etapa_new',);
+            }
+
+            // etapa_create
+            if ($pathinfo === '/etapa/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_etapa_create;
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::createAction',  '_route' => 'etapa_create',);
+            }
+            not_etapa_create:
+
+            // etapa_edit
+            if (preg_match('#^/etapa/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etapa_edit')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::editAction',));
+            }
+
+            // etapa_update
+            if (preg_match('#^/etapa/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_etapa_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etapa_update')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::updateAction',));
+            }
+            not_etapa_update:
+
+            // etapa_delete
+            if (preg_match('#^/etapa/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_etapa_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etapa_delete')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\EtapaController::deleteAction',));
+            }
+            not_etapa_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/asesoria')) {
+            // asesoria
+            if (rtrim($pathinfo, '/') === '/asesoria') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'asesoria');
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::indexAction',  '_route' => 'asesoria',);
+            }
+
+            // asesoria_show
+            if (preg_match('#^/asesoria/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'asesoria_show')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::showAction',));
+            }
+
+            // asesoria_new
+            if ($pathinfo === '/asesoria/new') {
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::newAction',  '_route' => 'asesoria_new',);
+            }
+
+            // asesoria_create
+            if ($pathinfo === '/asesoria/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_asesoria_create;
+                }
+
+                return array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::createAction',  '_route' => 'asesoria_create',);
+            }
+            not_asesoria_create:
+
+            // asesoria_edit
+            if (preg_match('#^/asesoria/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'asesoria_edit')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::editAction',));
+            }
+
+            // asesoria_update
+            if (preg_match('#^/asesoria/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_asesoria_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'asesoria_update')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::updateAction',));
+            }
+            not_asesoria_update:
+
+            // asesoria_delete
+            if (preg_match('#^/asesoria/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_asesoria_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'asesoria_delete')), array (  '_controller' => 'tesisControl\\tesisBundle\\Controller\\AsesoriaController::deleteAction',));
+            }
+            not_asesoria_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {

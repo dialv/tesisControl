@@ -21,7 +21,7 @@ class GrupoTesis
      * @ORM\SequenceGenerator(sequenceName="grupo_tesis_id_grupo_seq", allocationSize=1, initialValue=1)
      */
     private $idGrupo;
-
+    
     /**
      * @var \Docente
      *
@@ -52,13 +52,25 @@ class GrupoTesis
      */
     private $idTribun;
 
-
-
     /**
+    * String representation of this object
+    * @return string
+    */
+    public function __toString()
+    {
+        try {
+            return (string) $this->idGrupo;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
+   /**
      * Get idGrupo
      *
      * @return integer 
      */
+
+      
     public function getIdGrupo()
     {
         return $this->idGrupo;
@@ -132,4 +144,5 @@ class GrupoTesis
     {
         return $this->idTribun;
     }
+     
 }
