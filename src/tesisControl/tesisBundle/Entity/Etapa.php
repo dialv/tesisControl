@@ -20,7 +20,7 @@ class Etapa
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="etapa_id_etapa_seq", allocationSize=1, initialValue=1)
      */
-    private $idEtapa;
+    private $id;
 
     /**
      * @var string
@@ -43,9 +43,9 @@ class Etapa
      *
      * @return integer 
      */
-    public function getIdEtapa()
+    public function getId()
     {
-        return $this->idEtapa;
+        return $this->id;
     }
 
     /**

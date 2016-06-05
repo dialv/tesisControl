@@ -1,0 +1,15 @@
+{% extends 'tesisControltesisBundle::Template.html.twig' %}
+
+{% block body -%}
+    <h1>Asesoria creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('asesoria') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

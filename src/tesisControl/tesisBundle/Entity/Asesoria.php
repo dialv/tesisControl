@@ -20,7 +20,7 @@ class Asesoria
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="asesoria_id_asesoria_seq", allocationSize=1, initialValue=1)
      */
-    private $idAsesoria;
+    private $id;
 
     /**
      * @var \DateTime
@@ -60,9 +60,9 @@ class Asesoria
      *
      * @return integer 
      */
-    public function getIdAsesoria()
+    public function getId()
     {
-        return $this->idAsesoria;
+        return $this->id;
     }
 
     /**
@@ -156,4 +156,5 @@ class Asesoria
     {
         return $this->idGrupo;
     }
-}
+    
+    }

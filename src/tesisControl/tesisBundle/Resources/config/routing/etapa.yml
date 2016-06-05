@@ -1,0 +1,30 @@
+etapa:
+    path:     /
+    defaults: { _controller: "tesisControltesisBundle:Etapa:index" }
+
+etapa_show:
+    path:     /{id}/show
+    defaults: { _controller: "tesisControltesisBundle:Etapa:show" }
+
+etapa_new:
+    path:     /new
+    defaults: { _controller: "tesisControltesisBundle:Etapa:new" }
+
+etapa_create:
+    path:     /create
+    defaults: { _controller: "tesisControltesisBundle:Etapa:create" }
+    requirements: { _method: post }
+
+etapa_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "tesisControltesisBundle:Etapa:edit" }
+
+etapa_update:
+    path:     /{id}/update
+    defaults: { _controller: "tesisControltesisBundle:Etapa:update" }
+    requirements: { _method: post|put }
+
+etapa_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "tesisControltesisBundle:Etapa:delete" }
+    requirements: { _method: post|delete }

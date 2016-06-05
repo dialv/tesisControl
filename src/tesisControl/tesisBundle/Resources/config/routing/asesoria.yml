@@ -1,0 +1,30 @@
+asesoria:
+    path:     /
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:index" }
+
+asesoria_show:
+    path:     /{id}/show
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:show" }
+
+asesoria_new:
+    path:     /new
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:new" }
+
+asesoria_create:
+    path:     /create
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:create" }
+    requirements: { _method: post }
+
+asesoria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:edit" }
+
+asesoria_update:
+    path:     /{id}/update
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:update" }
+    requirements: { _method: post|put }
+
+asesoria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "tesisControltesisBundle:Asesoria:delete" }
+    requirements: { _method: post|delete }
