@@ -1,5 +1,5 @@
 tesis_controltesis_homepage:
-    path:     /hello/{name}
+    path:     /login
     defaults: { _controller: tesisControltesisBundle:Default:index }
 
 tesisControltesisBundle_usuario:
