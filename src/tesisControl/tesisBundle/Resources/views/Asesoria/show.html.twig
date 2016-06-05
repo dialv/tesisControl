@@ -15,11 +15,11 @@
             </tr>
             <tr>
                 <th>Horainicio</th>
-                <td>{{ entity.horaInicio }}</td>
+                <td>{{ entity.horaInicio | date("H:i:s") }}</td>
             </tr>
             <tr>
                 <th>Horafin</th>
-                <td>{{ entity.horaFin }}</td>
+                <td>{{ entity.horaFin | date("H:i:s")}}</td>
             </tr>
         </tbody>
     </table>
@@ -38,3 +38,4 @@
     <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
+

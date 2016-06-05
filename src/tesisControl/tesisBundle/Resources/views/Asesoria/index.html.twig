@@ -14,8 +14,7 @@
     <table id="tabla" class="display">
         <thead>
             <tr>
-                <th>Id</th>
-                 <th>IdGrupo</th>
+                <th>IdGrupo</th>
                 <th>Fecha</th>
                 <th>Horainicio</th>
                 <th>Horafin</th>
@@ -26,9 +25,9 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('asesoria_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.horaInicio }}</td>
-                <td>{{ entity.horaFin }}</td>
+                <td>{% if entity.fecha%}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.horaInicio | date("H:i:s") }}</td>
+                <td>{{ entity.horaFin | date("H:i:s")  }}</td>
                 <td>
                 <ul>
                     <li>
