@@ -1,15 +1,5 @@
- 
-        {% block javascripts %}            
-        <script type="text/javascript" src="{{ asset('bundles/jqueryjquery/js/jquery-1.12.4.min.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('bundles/tesiscontroltesis/DataTables-1.10.12/media/js/jquery.dataTables.min.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('bundles/tesiscontroltesis/DataTables-1.10.12/media/js/dataTables.jqueryui.min.js') }}" ></script>
-       
-        <script type="text/javascript" src="{{ asset('bundles/tesiscontroltesis/js/bootstrap.min.js') }}" ></script>
-        {% endblock %}
-{% block stylesheets %}
-        <link href="{{ asset('bundles/tesiscontroltesis/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
-        <link href="{{ asset('bundles/tesiscontroltesis/jquery-ui-1.11.4.custom/jquery-ui.css') }}" type="text/css" rel="stylesheet" />
-        <link href="{{ asset('bundles/tesiscontroltesis/DataTables-1.10.12/media/css/dataTables.jqueryui.min.css') }}" type="text/css" rel="stylesheet" />
+{%extends "tesisControltesisBundle:Default:index.html.twig"%}
+{%block stylesheets %}
 <style type="text/css">
         body {
             padding-top: 40px;
@@ -47,15 +37,15 @@
    {%block container %}
     <div class="container">
 
-        <form class="form-signin"  data-validate="parsley">
-            <h2 class="form-signin-heading">Bienvenido a control de tesis</h2>
-            <input type="text" id="username" class="input-block-level" name="username" placeholder="Email address" data-trigger="change" data-required="true" data-type="email">
+        <form class="form-signin" method ="POST" action="{{path('login_login_homepage')}}" data-validate="parsley">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" id="username" class="input-block-level" name="username" placeholder="Username" data-trigger="change" data-required="true" >
             <input type="password" class="input-block-level" name="password" placeholder="Password" data-trigger="change" data-required="true">
             <label class="checkbox">
                 <input type="checkbox" name="remember" value="remember-me"> Remember me
             </label>
             <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-            <a >Sign Up</a>
+            <a href="{{path('login_login_signup')}}" >Sign Up</a>
         </form>
 
     </div> 

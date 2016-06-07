@@ -1,6 +1,10 @@
 tesis_controltesis_homepage:
-    path:     /login
+    path:     /
     defaults: { _controller: tesisControltesisBundle:Default:index }
+
+controltesis_homepage:
+    path:     /init
+    defaults: { _controller: tesisControltesisBundle:Default:inicio }
 
 tesisControltesisBundle_usuario:
     resource: "@tesisControltesisBundle/Resources/config/routing/usuario.yml"
@@ -13,3 +17,14 @@ tesisControltesisBundle_etapa:
 tesisControltesisBundle_asesoria:
     resource: "@tesisControltesisBundle/Resources/config/routing/asesoria.yml"
     prefix:   /asesoria    
+login_login_homepage:
+    pattern:  /login
+    defaults: { _controller: tesisControltesisBundle:Default:index }
+
+login_login_signup:
+    pattern:  /signup
+    defaults: { _controller: tesisControltesisBundle:Default:signup }
+    
+login_login_logout:
+    pattern:  /logout
+    defaults: { _controller: tesisControltesisBundle:Default:logout }

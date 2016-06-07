@@ -17,8 +17,6 @@ class Usuario
      *
      * @ORM\Column(name="id_usuario", type="string", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="usuario_id_usuario_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -40,6 +38,18 @@ class Usuario
     private $idDocente;
 
 
+    /**
+     * Set idUsuario
+     *
+     * @param string $id
+     * @return Usuario
+     */
+    public function setId($id)
+    {
+        $this->id= $id;
+
+        return $this;
+    }
 
     /**
      * Get idUsuario
