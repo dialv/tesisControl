@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
-        <title>Sign in &middot; Project</title>
+        <title>control de tesis</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <link href="{{asset('bundles/tesiscontroltesis/css/bootstrap.css')}}" rel="stylesheet">
-        <link href="{{asset('bundles/tesiscontroltesis/css/bootstrap-responsive.css')}}" rel="stylesheet">
-        <link href="{{asset('bundles/tesiscontroltesis/css/parsley/parsley.css')}}" rel="stylesheet">
+        <link href="{{ asset('bundles/tesiscontroltesis/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('bundles/tesiscontroltesis/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('bundles/tesiscontroltesis/css/parsley/parsley.css')}}" type="text/css" rel="stylesheet">
 {%block stylesheets %}
 {%endblock%}
         </head>
@@ -18,13 +18,11 @@
 
 {%block container %}
 {%endblock%}
-
-
-            <script src="{{asset('bundles/tesiscontroltesis/js/jquery.js')}}"></script>
-            <script src="{{asset('bundles/tesiscontroltesis/js/bootstrap.js')}}"></script>
-            <script src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley.min.js')}}"></script>
-            <script src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley-standalone.min.js')}}"></script>
-            <script src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley.extend.min.js')}}"></script>
+            <script type="text/javascript" src="{{asset('bundles/tesiscontroltesis/js/jquery.js')}}"></script>
+            <script type="text/javascript" src="{{asset('bundles/tesiscontroltesis/js/bootstrap.js')}}"></script>
+            <script type="text/javascript" src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley.min.js')}}"></script>
+            <script type="text/javascript" src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley-standalone.min.js')}}"></script>
+            <script type="text/javascript" src="{{asset('bundles/tesiscontroltesis/js/parsley/parsley.extend.min.js')}}"></script>
 {%block javascripts %}
  {%endblock%}
         </body>

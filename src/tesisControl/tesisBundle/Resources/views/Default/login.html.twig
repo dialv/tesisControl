@@ -36,16 +36,17 @@
 {%endblock%}
    {%block container %}
     <div class="container">
-
+        <H1  ALIGN=center>Sistema de gestion de<br> trabajos de graduacion</H1>
         <form class="form-signin" method ="POST" action="{{path('login_login_homepage')}}" data-validate="parsley">
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signin-heading">Iniciar Sesion</h2>
             <input type="text" id="username" class="input-block-level" name="username" placeholder="Username" data-trigger="change" data-required="true" >
             <input type="password" class="input-block-level" name="password" placeholder="Password" data-trigger="change" data-required="true">
             <label class="checkbox">
-                <input type="checkbox" name="remember" value="remember-me"> Remember me
+                <input type="checkbox" name="remember" value="remember-me"/> 
+                <BR>Recordarme  
             </label>
-            <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-            <a href="{{path('login_login_signup')}}" >Sign Up</a>
+            <button class="btn btn-large btn-primary" type="submit">LOGIN</button>
+            <a href="{{path('login_login_signup')}}" >Registrate</a>
         </form>
 
     </div> 
