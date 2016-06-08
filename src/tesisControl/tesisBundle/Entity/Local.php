@@ -63,4 +63,13 @@ class Local
     {
         return $this->nombreLocal;
     }
+    
+    public function __toString()
+    {
+        try {
+            return (string) $this->nombreLocal;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 }

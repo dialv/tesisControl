@@ -20,7 +20,7 @@ class TesisEstado
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="tesis_estado_id_estado_seq", allocationSize=1, initialValue=1)
      */
-    private $idEstado;
+    private $id;
 
     /**
      * @var string
@@ -108,9 +108,9 @@ class TesisEstado
      *
      * @return integer 
      */
-    public function getIdEstado()
+    public function getId()
     {
-        return $this->idEstado;
+        return $this->id;
     }
 
     /**

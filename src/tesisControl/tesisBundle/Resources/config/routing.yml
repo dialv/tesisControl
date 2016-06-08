@@ -12,4 +12,9 @@ tesisControltesisBundle_etapa:
 
 tesisControltesisBundle_asesoria:
     resource: "@tesisControltesisBundle/Resources/config/routing/asesoria.yml"
-    prefix:   /asesoria    
+    prefix:   /asesoria  
+    
+tesisControltesisBundle_tesisestado:
+    resource: "@tesisControltesisBundle/Resources/config/routing/tesisestado.yml"
+    prefix:   /tesisestado      
+    

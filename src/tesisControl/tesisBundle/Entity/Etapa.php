@@ -93,4 +93,13 @@ class Etapa
     {
         return $this->descripcion;
     }
+    
+    public function __toString()
+    {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 }

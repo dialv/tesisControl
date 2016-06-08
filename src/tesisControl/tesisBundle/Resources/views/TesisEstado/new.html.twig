@@ -8,17 +8,18 @@
     
     </script>
 {% endblock %}
+
 {% block body -%}
-    <h1>Asesoria edit</h1>
-    <table id="tabla" class="display">
-    {{ form(edit_form) }}
+    <h1>TesisEstado creation</h1>
+    <table id="tabla" class="display"></table>
+    
+    {{ form(form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('asesoria') }}">
+        <a href="{{ path('tesisestado') }}">
             Back to the list
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
