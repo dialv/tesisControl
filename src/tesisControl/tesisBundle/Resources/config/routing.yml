@@ -16,7 +16,12 @@ tesisControltesisBundle_etapa:
 
 tesisControltesisBundle_asesoria:
     resource: "@tesisControltesisBundle/Resources/config/routing/asesoria.yml"
-    prefix:   /asesoria    
+    prefix:   /asesoria
+
+tesisControltesisBundle_tesisestado:
+    resource: "@tesisControltesisBundle/Resources/config/routing/tesisestado.yml"
+    prefix:   /tesisestado
+    
 login_login_homepage:
     pattern:  /login
     defaults: { _controller: tesisControltesisBundle:Default:index }
@@ -27,4 +32,3 @@ login_login_signup:
     
 login_login_logout:
     pattern:  /logout
-    defaults: { _controller: tesisControltesisBundle:Default:logout }

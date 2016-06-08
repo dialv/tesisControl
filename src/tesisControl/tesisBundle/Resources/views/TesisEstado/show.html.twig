@@ -1,0 +1,65 @@
+{% extends 'tesisControltesisBundle::Template.html.twig' %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function() {
+    $('#tabla').DataTable();
+    });
+    
+    </script>
+{% endblock %}
+
+{% block body -%}
+    <h1>TesisEstado</h1>
+
+    <table id="tabla" class="display"></table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombrees</th>
+                <td>{{ entity.nombreEs }}</td>
+            </tr>
+            <tr>
+                <th>Descripciones</th>
+                <td>{{ entity.descripcionEs }}</td>
+            </tr>
+            <tr>
+                <th>Fechadefensa</th>
+                <td>{{ entity.fechaDefensa|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechainicio</th>
+                <td>{{ entity.fechaInicio|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{{ entity.fechaFin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+            <tr>
+                <th>Observacion</th>
+                <td>{{ entity.observacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tesisestado') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tesisestado_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

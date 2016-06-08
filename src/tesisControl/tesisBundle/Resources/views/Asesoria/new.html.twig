@@ -1,8 +1,17 @@
 {% extends 'tesisControltesisBundle::Template.html.twig' %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function() {
+    $('#tabla').DataTable();
+    });
+    </script>
+ {% endblock %}
 
 {% block body -%}
     <h1>Asesoria creation</h1>
-
+    
+    <table id="tabla" class="display">
     {{ form(form) }}
 
         <ul class="record_actions">

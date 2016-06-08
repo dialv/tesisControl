@@ -1,0 +1,30 @@
+tesisestado:
+    path:     /
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:index" }
+
+tesisestado_show:
+    path:     /{id}/show
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:show" }
+
+tesisestado_new:
+    path:     /new
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:new" }
+
+tesisestado_create:
+    path:     /create
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:create" }
+    requirements: { _method: post }
+
+tesisestado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:edit" }
+
+tesisestado_update:
+    path:     /{id}/update
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:update" }
+    requirements: { _method: post|put }
+
+tesisestado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "tesisControltesisBundle:TesisEstado:delete" }
+    requirements: { _method: post|delete }
