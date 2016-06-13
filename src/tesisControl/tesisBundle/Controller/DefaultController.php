@@ -5,6 +5,7 @@ namespace tesisControl\tesisBundle\Controller;
 use Sensio \Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio \Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 use tesisControl\tesisBundle\Modals\Login;
 use tesisControl\tesisBundle\Entity\Usuario;
@@ -28,7 +29,10 @@ class DefaultController extends Controller {
                     $login->setPassword($password);
                     $session->set('login', $login);
                 }
-                return $this->render('tesisControltesisBundle:Default:welcome.html.twig', array('name' => $user->getId()));
+                return $this->render('tesisControltesisBundle:Default:welcome.html.twig', array(
+                    'name' => $user->getId(),
+                    'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+                ));
             } else {
                 return $this->render('tesisControltesisBundle:Default:login.html.twig', array('name' => 'Login Error'));
             }
@@ -54,7 +58,29 @@ class DefaultController extends Controller {
                 return $this->render('tesisControltesisBundle:Default:welcome.html.twig');
               
             }
-      
+    
+    public function loginAction(Request $request)
+    {
+        $session = $request->getSession();
+ 
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(
+                SecurityContext::AUTHENTICATION_ERROR
+            );
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+        }
+ 
+        return $this->render('tesisControltesisBundle:Default:login.html.twig',
+            array(
+                // last username entered by the user
+                'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+                'error'         => $error,
+            )
+        );
+    }
 
       
     public function logoutAction(Request $request) {

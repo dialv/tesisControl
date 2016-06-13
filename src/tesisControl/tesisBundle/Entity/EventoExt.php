@@ -20,7 +20,7 @@ class EventoExt
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="evento_ext_id_evento_seq", allocationSize=1, initialValue=1)
      */
-    private $idEvento;
+    private $id;
 
     /**
      * @var \DateTime
@@ -36,16 +36,28 @@ class EventoExt
      */
     private $descripcion;
 
+    /**
+    * String representation of this object
+    * @return string
+    */
+    public function __toString()
+    {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 
 
     /**
-     * Get idEvento
+     * Get id
      *
      * @return integer 
      */
-    public function getIdEvento()
+    public function getId()
     {
-        return $this->idEvento;
+        return $this->id;
     }
 
     /**

@@ -37,6 +37,18 @@ class Usuario
      */
     private $idDocente;
 
+    /**
+    * String representation of this object
+    * @return string
+    */
+    public function __toString()
+    {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 
     /**
      * Set idUsuario

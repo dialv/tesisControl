@@ -20,7 +20,7 @@ class Tesis
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="tesis_id_tesis_seq", allocationSize=1, initialValue=1)
      */
-    private $idTesis;
+    private $id;
 
     /**
      * @var \DateTime
@@ -52,17 +52,28 @@ class Tesis
      * })
      */
     private $idGrupo;
-
+/**
+    * String representation of this object
+    * @return string
+    */
+    public function __toString()
+    {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+            }
+    }
 
 
     /**
-     * Get idTesis
+     * Get id
      *
      * @return integer 
      */
-    public function getIdTesis()
+    public function getId()
     {
-        return $this->idTesis;
+        return $this->id;
     }
 
     /**

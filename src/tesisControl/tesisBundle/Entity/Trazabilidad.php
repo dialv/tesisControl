@@ -20,7 +20,7 @@ class Trazabilidad
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="trazabilidad_id_trazabilidad_seq", allocationSize=1, initialValue=1)
      */
-    private $idTrazabilidad;
+    private $id;
 
     /**
      * @var \EventoExt
@@ -59,9 +59,22 @@ class Trazabilidad
      *
      * @return integer 
      */
-    public function getIdTrazabilidad()
+    public function getId()
     {
-        return $this->idTrazabilidad;
+        return $this->id;
+    }
+    
+    /**
+    * String representation of this object
+    * @return string
+    */
+    public function __toString()
+    {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+            }
     }
 
     /**

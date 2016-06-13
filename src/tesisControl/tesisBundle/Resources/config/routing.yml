@@ -2,6 +2,11 @@ tesis_controltesis_homepage:
     path:     /
     defaults: { _controller: tesisControltesisBundle:Default:index }
 
+tesisControlAnnotations:
+    resource: "@tesisControltesisBundle/Controller/"
+    prefix: /
+    type: annotation
+
 controltesis_homepage:
     path:     /init
     defaults: { _controller: tesisControltesisBundle:Default:inicio }
@@ -24,7 +29,7 @@ tesisControltesisBundle_tesisestado:
     
 login_login_homepage:
     pattern:  /login
-    defaults: { _controller: tesisControltesisBundle:Default:index }
+    defaults: { _controller: tesisControltesisBundle:Default:login }
 
 login_login_signup:
     pattern:  /signup
