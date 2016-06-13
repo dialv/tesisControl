@@ -20,7 +20,7 @@ class GrupoTesis
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="grupo_tesis_id_grupo_seq", allocationSize=1, initialValue=1)
      */
-    private $idGrupo;
+    private $id;
     
     /**
      * @var \Docente
@@ -59,21 +59,21 @@ class GrupoTesis
     public function __toString()
     {
         try {
-            return (string) $this->idGrupo;
+            return (string) $this->id;
         } catch (Exception $exception) {
             return '';
             }
     }
    /**
-     * Get idGrupo
+     * Get id
      *
      * @return integer 
      */
 
       
-    public function getIdGrupo()
+    public function getId()
     {
-        return $this->idGrupo;
+        return $this->id;
     }
 
     /**

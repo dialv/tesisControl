@@ -20,7 +20,7 @@ class Notas
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="notas_id_nota_seq", allocationSize=1, initialValue=1)
      */
-    private $idNota;
+    private $id;
 
     /**
      * @var string
@@ -66,13 +66,13 @@ class Notas
 
 
     /**
-     * Get idNota
+     * Get id
      *
      * @return integer 
      */
-    public function getIdNota()
+    public function getId()
     {
-        return $this->idNota;
+        return $this->id;
     }
 
     /**

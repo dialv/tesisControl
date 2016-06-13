@@ -20,7 +20,7 @@ class Tribunal
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="tribunal_id_tribun_seq", allocationSize=1, initialValue=1)
      */
-    private $idTribun;
+    private $id;
 
     /**
      * @var string
@@ -49,13 +49,13 @@ class Tribunal
 
 
     /**
-     * Get idTribun
+     * Get id
      *
      * @return integer 
      */
-    public function getIdTribun()
+    public function getId()
     {
-        return $this->idTribun;
+        return $this->id;
     }
 
     /**

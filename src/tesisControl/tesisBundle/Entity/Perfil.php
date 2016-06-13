@@ -20,7 +20,7 @@ class Perfil
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="perfil_id_perfil_seq", allocationSize=1, initialValue=1)
      */
-    private $idPerfil;
+    private $id;
 
     /**
      * @var string
@@ -49,13 +49,13 @@ class Perfil
 
 
     /**
-     * Get idPerfil
+     * Get id
      *
      * @return integer 
      */
-    public function getIdPerfil()
+    public function getId()
     {
-        return $this->idPerfil;
+        return $this->id;
     }
 
     /**
