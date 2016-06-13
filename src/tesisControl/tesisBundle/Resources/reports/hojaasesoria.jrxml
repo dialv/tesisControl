@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7fd2196-7e66-42bd-aede-26de62910446">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="119"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="Fecha" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     a."id_asesoria",
+     t."nombre_t",
+     a."fecha",
+     a."hora_inicio",
+     a."hora_fin",
+     g."id_grupo",
+     al."nombre_a",
+     d."nombre_d"
+FROM
+     "grupo_tesis" g INNER JOIN "tesis" t ON g."id_grupo" = t."id_grupo"
+     INNER JOIN "asesoria" a ON g."id_grupo" = a."id_grupo"
+     INNER JOIN "alumno" al ON g."id_grupo" = al."id_grupo"
+     INNER JOIN "docente" d ON g."id_docente" = d."id_docente"
+order by al.nombre_a]]>
+	</queryString>
+	<field name="id_asesoria" class="java.lang.Integer"/>
+	<field name="nombre_t" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="hora_inicio" class="java.sql.Time"/>
+	<field name="hora_fin" class="java.sql.Time"/>
+	<field name="id_grupo" class="java.lang.Integer"/>
+	<field name="nombre_a" class="java.lang.String"/>
+	<field name="nombre_d" class="java.lang.String"/>
+	<group name="id_asesoria">
+		<groupExpression><![CDATA[$F{id_asesoria}]]></groupExpression>
+		<groupHeader>
+			<band height="47">
+				<frame>
+					<reportElement mode="Opaque" x="17" y="0" width="532" height="24" forecolor="#B89F7D" backcolor="#9DB1B8" uuid="646f5dce-9761-44e6-b654-1ff1095c46c2"/>
+				</frame>
+				<staticText>
+					<reportElement style="SubTitle" x="1" y="24" width="131" height="19" uuid="dd4be11e-126e-4f02-a889-6b49884e94a4"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FECHA:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="148" y="24" width="149" height="20" uuid="d55169a2-b92c-48a4-8c0a-9e80b7eead5f"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="106">
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="17" y="28" width="131" height="21" forecolor="#000000" uuid="6a1f4aff-988b-49a8-9a97-99536cb29376"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Hora de Inicio:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="148" y="29" width="149" height="20" uuid="3f7f6c48-1224-4810-bdb6-8abeb4f087b3"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{hora_inicio}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="297" y="29" width="138" height="20" forecolor="#000000" uuid="2ec8fbb7-2670-401b-8f1d-aab37640c418"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Hora Finalización:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="435" y="29" width="127" height="20" uuid="9ab4f876-a537-45f2-a8e4-f7fc18540eff"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{hora_fin}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="17" y="0" width="132" height="20" forecolor="#000000" uuid="b8755fb3-c786-40a0-a2ec-358bceec1952"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Grupo No.]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="154" y="2" width="338" height="18" uuid="9559c24a-ce53-4fb7-bc32-71fe471f9bf2"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_grupo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="65">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="2" y="15" width="551" height="1" uuid="ae629413-4145-4baa-8e4d-746abec43849"/>
+				</line>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="17" y="40" width="194" height="18" uuid="939ea561-246e-422c-8fb0-d220914b995c"/>
+					<textElement>
+						<font fontName="SansSerif" size="14" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre_d}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="SubTitle" x="342" y="21" width="111" height="19" uuid="b9348716-8ee4-4c9d-9487-445e90d04e7f"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ENTRADA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="453" y="21" width="100" height="19" uuid="764d944e-8410-4ec2-b763-2cac1e840459"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SALIDA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="211" y="21" width="131" height="19" uuid="e02f4b9d-493f-4c34-bb38-b64245c8cfee"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FIRMA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="17" y="20" width="194" height="20" forecolor="#000000" uuid="8ee711a3-0778-47a4-9419-d5edba6aa902"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DOCENTE]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="187" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="4" y="83" width="539" height="23" uuid="0cf15596-397e-400a-bd20-4298a9cd9c44"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HOJA DE CONTROL DE CONTROL DE ASESORIAS DE TRABAJOS DE GRADUACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="47" y="10" width="435" height="20" uuid="6f39fdec-c89c-4f52-8871-a33d95aca946"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE EL SALVADOR  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="49" y="30" width="435" height="21" uuid="e5d06f9a-9ef3-45fa-b6d7-68d0f38cdf24"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE INGENIERÍA Y ARQUITECTURA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="49" y="51" width="435" height="21" uuid="253418b7-0f27-41dc-8db5-f6f490346b6f"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA DE INGENIERA DE SISTEMAS INFORMÁTICOS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="141" y="111" width="390" height="20" uuid="dc84858c-9e9b-4e7e-9910-09489a9e6aa3"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_t}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="4" y="110" width="132" height="20" forecolor="#000000" uuid="88e8048b-9415-4133-9de8-4fd21df44c99"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEMA:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="2" y="43" width="211" height="22" uuid="469a29a3-2ecc-4d14-a9f7-1aba9cbeeb1b"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_a}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="1" y="6" width="210" height="20" forecolor="#000000" uuid="402f0cd4-a2e7-4aeb-8822-244de5c4c9a2"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[ALUMNO]]></text>
+				</staticText>
+			</elementGroup>
+			<staticText>
+				<reportElement style="SubTitle" x="215" y="6" width="131" height="19" uuid="b734436a-6e98-48a1-b319-d5ce3c7e87b4"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="346" y="6" width="111" height="19" uuid="67bab92e-00c2-41d7-ad84-d6a7991c2eb0"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="457" y="6" width="100" height="19" uuid="bd8a512b-6dfc-4bcb-8ab9-d85136605310"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALIDA]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="26" width="555" height="1" uuid="802fd9e2-f1e2-483a-87b6-a87457e8da59"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="422" y="20" width="112" height="13" forecolor="#FFFFFF" uuid="b506a50c-9f29-4ec2-a4b4-db69021147f1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="4a2e1c8e-2821-4fef-8a8b-e3bd32209472"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="e6f0286d-4832-4c8a-a678-e369b8a3a480"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="264" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="87ee1293-34c0-4aab-be37-23d12197d3d0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
