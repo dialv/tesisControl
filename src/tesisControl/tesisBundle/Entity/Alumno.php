@@ -20,7 +20,7 @@ class Alumno
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="alumno_carnet_a_seq", allocationSize=1, initialValue=1)
      */
-    private $carnetA;
+    private $id;
 
     /**
      * @var string
@@ -42,13 +42,13 @@ class Alumno
 
 
     /**
-     * Get carnetA
+     * Get id
      *
      * @return string 
      */
-    public function getCarnetA()
+    public function getId()
     {
-        return $this->carnetA;
+        return $this->id;
     }
 
     /**

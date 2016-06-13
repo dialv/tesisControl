@@ -20,7 +20,7 @@ class Docente
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="docente_id_docente_seq", allocationSize=1, initialValue=1)
      */
-    private $idDocente;
+    private $id;
 
     /**
      * @var string
@@ -52,20 +52,20 @@ class Docente
  public function __toString()
     {
         try {
-            return (string) $this->idDocente;
+            return (string) $this->id;
         } catch (Exception $exception) {
             return '';
             }
     }
 
     /**
-     * Get idDocente
+     * Get id
      *
      * @return integer 
      */
-    public function getIdDocente()
+    public function getId()
     {
-        return $this->idDocente;
+        return $this->id;
     }
 
     /**

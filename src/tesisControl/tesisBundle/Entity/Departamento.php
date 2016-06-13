@@ -20,7 +20,7 @@ class Departamento
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="departamento_id_departamento_seq", allocationSize=1, initialValue=1)
      */
-    private $idDepartamento;
+    private $id;
 
     /**
      * @var string
@@ -42,13 +42,13 @@ class Departamento
 
 
     /**
-     * Get idDepartamento
+     * Get id
      *
      * @return integer 
      */
-    public function getIdDepartamento()
+    public function getId()
     {
-        return $this->idDepartamento;
+        return $this->id;
     }
 
     /**

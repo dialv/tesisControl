@@ -16,24 +16,40 @@
     </li>
     
     <li class="top">
-        <a href="{{ path('usuario') }}" class="top_link">
-            <span class="down">Evaluación</span></a>
+        <a href="{{ path('controltesis_homepage') }}" class="top_link">
+            <span class="down">Proceso de tesis</span></a>
             <ul class="sub">
-                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+                <li><a href="{{ path('etapa') }}">etapas</a></li>
+                <li><a href="{{ path('asesoria') }}">asesorias</a></li>
+                <li><a href="{{ path('tesisestado') }}">estado de tesis</a></li>
             </ul>
     </li>
     <li class="top">
-        <a href="{{ path('usuario') }}" class="top_link">
-            <span class="down">Asignatura</span> </a>
+        <a href="{{ path('controltesis_homepage') }}" class="top_link">
+            <span class="down">Consultas</span> </a>
             <ul class="sub">
-                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+                <li><a href="{{ path('alumno') }}">consulta de alumnos</a></li>
+                <li><a href="{{ path('docente') }}">consulta de docentes</a></li>
+                <li><a href="{{ path('departamento') }}">consulta de departamentos</a></li>
+                <li><a href="{{ path('carrera') }}">consulta de carreras</a></li>
             </ul>
+            
     </li>
     <li class="top">
         <a href="{{ path('usuario') }}" class="top_link">
-            <span class="down">Estudiante</span> </a>
-          <ul class="sub">
-                <li><a href="{{ path('usuario_new') }}">Agregar</a></li>
+            <span class="down">Seguridad</span> </a>
+            <ul class="sub">
+                <li><a href="{{ path('usuario') }}">gestion de usuarios</a></li>
+                <li><a href="{{ path('rol') }}">gestion de roles</a></li>
+            </ul>
+            
+    </li>
+    <li class="top">
+        <a href="{{ path('trazabilidad') }}" class="top_link">
+            <span class="down">Trazabilidad</span> </a>
+            <ul class="sub">
+                <li><a href="{{ path('trazabilidad') }}">Trazabilidad de eventos</a></li>
+                <li><a href="{{ path('eventoext') }}">Gestion de eventos</a></li>
             </ul>
     </li>
 </ul>

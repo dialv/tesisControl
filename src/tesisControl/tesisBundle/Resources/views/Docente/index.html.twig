@@ -1,0 +1,39 @@
+{% extends 'tesisControltesisBundle::Template.html.twig' %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function() {
+    $('#tabla').DataTable();
+    });
+        
+    </script>
+{% endblock %}
+{% block body -%}
+    <h1>Docente list</h1>
+
+    <table id="tabla" class="display">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombred</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('docente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombreD }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('docente_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

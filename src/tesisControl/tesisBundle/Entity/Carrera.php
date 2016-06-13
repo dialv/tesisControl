@@ -20,7 +20,7 @@ class Carrera
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="carrera__id_carrera_seq", allocationSize=1, initialValue=1)
      */
-    private $idCarrera;
+    private $id;
 
     /**
      * @var string
@@ -32,13 +32,13 @@ class Carrera
 
 
     /**
-     * Get idCarrera
+     * Get id
      *
      * @return string 
      */
-    public function getIdCarrera()
+    public function getId()
     {
-        return $this->idCarrera;
+        return $this->id;
     }
 
     /**
