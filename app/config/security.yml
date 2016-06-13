@@ -64,7 +64,7 @@ security:
 #                realm: "Introduzca Usuario y Contraseña"
             form_login:
                 login_path: /admin/login
-                check_path: /admin/login_check
+                check_path: controltesis_homepage
             logout:
                 invalidate_session: false
                 path: /admin/logout

@@ -1,0 +1,51 @@
+{% extends 'tesisControltesisBundle::Template.html.twig' %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function() {
+    $('#tabla').DataTable();
+    });
+        
+    </script>
+{% endblock %}
+{% block body -%}
+    <h1>Trazabilidad list</h1>
+
+     <table id="tabla" class="display">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idevento</th>
+                <th>descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('trazabilidad_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.idEvento }}</td>
+                <td>{{ entity.idEvento.descripcion }}</a></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('trazabilidad_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('trazabilidad_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('trazabilidad_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
