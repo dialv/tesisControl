@@ -2,7 +2,7 @@ tesis_controltesis_homepage:
     path:     /
     defaults: { _controller: tesisControltesisBundle:Default:index }
 
-tesisControltesisBundle_Annotations:
+tesisControlAnnotations:
     resource: "@tesisControltesisBundle/Controller/"
     prefix: /
     type: annotation
