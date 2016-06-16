@@ -1,10 +1,18 @@
 {% extends 'tesisControltesisBundle::Template.html.twig' %}
-
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    $(document).ready(function() {
+    $('#tabla').DataTable();
+    });
+        
+    </script>
+{% endblock %}
 {% block body -%}
-    <h1>User list</h1>
-
-    <table class="records_list">
-        <thead>
+    <h1>Gestion de Usuarios</h1>
+    
+   <table id="tabla" class="display">
+    <thead>
             <tr>
                 <th>Id</th>
                 <th>Username</th>
