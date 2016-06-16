@@ -7,6 +7,10 @@ tesisControlAnnotations:
     prefix: /
     type: annotation
 
+login_check:
+    pattern:  /login_check
+    defaults: { _controller: tesisControltesisBundle:Security:securityCheck}
+
 controltesis_homepage:
     path:     /init
     defaults: { _controller: tesisControltesisBundle:Default:inicio }

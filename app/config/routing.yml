@@ -1,6 +1,6 @@
 _home:
     pattern:  /
-    defaults: { _controller: tesisControltesisBundle:Security:login }
+    defaults: { _controller: tesisControltesisBundle:Default:inicio }
     
 tesiscontroltesis:
     resource: "@tesisControltesisBundle/Resources/config/routing.yml"
