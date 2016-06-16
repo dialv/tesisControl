@@ -46,11 +46,11 @@ class SecurityController extends Controller {
               return $this->render('tesisControltesisBundle:Default:welcome.html.twig', array('Bienvenido'));
      }
      else {
-         return $this->render('tesisControltesisBundle:Security:login.html.twig', array(
-//        return $this->render('tesisControltesisBundle:Default:login.html.twig', array(
+        return $this->render('tesisControltesisBundle:Security:login.html.twig', array(
+
 // el último nombre de usuario ingresado por el usuario
-                    'last_username' => $session->get(SecurityContext::LAST_USERNAME),
-                    'error' => $error,
+
+                    'name' => 'login error'
         ));
      }
     }
@@ -61,7 +61,13 @@ class SecurityController extends Controller {
      * @Route("/logout", name="logout")
      */
     public function logoutAction() {
-        
+        $this->get("request")->getSession()->invalidate();
+$this->get("security.context")->setToken(null);
+        return $this->render('tesisControltesisBundle:Default:login.html.twig', array(
+// el último nombre de usuario ingresado por el usuario
+                    'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+                    'name' => 'erorr',
+        ));
     }
 
 }

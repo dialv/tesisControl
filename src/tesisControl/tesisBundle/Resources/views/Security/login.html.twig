@@ -37,10 +37,11 @@
     </style>
     {%endblock%}
     {%block container %}
-<form action="{{ path('login_check') }}" method="post"><label for="username">Username:</label>
-<input id="username" type="text" name="_username" value="{{ last_username }}" />
+         <H1  ALIGN=center>AREA DEL ADMINISTRADOR IDENTIFIQUESE!!!!</H1>
+<form action="{{ path('admin_login_check') }}" method="post"><label for="username">Username:</label>
+<input id="username" type="text" class="input-block-level" name="_username" value="{{ last_username }}" />
 <label for="password">Password:</label>
-<input id="password" type="password" name="_password" />
+<input id="password" class="input-block-level" type="password" name="_password" />
 
 <input type="submit" name="login" />
 

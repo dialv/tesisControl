@@ -11,6 +11,10 @@ login_check:
     pattern:  /login_check
     defaults: { _controller: tesisControltesisBundle:Security:securityCheck}
 
+admin_login_check:
+    pattern:  admin/login_check
+    defaults: { _controller: tesisControltesisBundle:Security:securityCheck}
+
 controltesis_homepage:
     path:     /init
     defaults: { _controller: tesisControltesisBundle:Default:inicio }
@@ -31,6 +35,14 @@ tesisControltesisBundle_tesisestado:
     resource: "@tesisControltesisBundle/Resources/config/routing/tesisestado.yml"
     prefix:   /tesisestado
     
+admin_user:
+    pattern:  /admin/user
+    defaults: { _controller: "tesisControltesisBundle:User:index" }
+
+admin_role:
+    pattern:  /admin/role
+    defaults: { _controller: "tesisControltesisBundle:Role:index" }
+
 login_login_homepage:
     pattern:  /login
     defaults: { _controller: tesisControltesisBundle:Default:login }
@@ -41,3 +53,8 @@ login_login_signup:
     
 login_login_logout:
     pattern:  /logout
+    defaults: { _controller: tesisControltesisBundle:Security:loguot}
+
+login_logout:
+    pattern:  /admin/logout
+    defaults: { _controller: tesisControltesisBundle:Security:loguot}
