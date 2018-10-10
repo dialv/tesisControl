@@ -133,9 +133,11 @@ class AlumnoController extends Controller
      */
     public function editAction($id)
     {
+        $id1 = $id;
+
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('tesisControltesisBundle:Alumno')->find($id);
+        $entity = $em->getRepository('tesisControltesisBundle:Alumno')->find($id1);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Alumno entity.');
