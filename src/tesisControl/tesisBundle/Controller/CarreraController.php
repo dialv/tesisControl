@@ -108,15 +108,17 @@ class CarreraController extends Controller
      */
     public function showAction($id)
     {
+        $id1 = $id;
+
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('tesisControltesisBundle:Carrera')->find($id);
+        $entity = $em->getRepository('tesisControltesisBundle:Carrera')->find($id1);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Carrera entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($id1);
 
         return array(
             'entity'      => $entity,
